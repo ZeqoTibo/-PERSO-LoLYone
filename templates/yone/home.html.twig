@@ -1,0 +1,133 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}YONE OTP{% endblock %}
+
+{% block javascripts %}
+
+    <script type="text/javascript">
+        function search_champ() {
+            let input = document.getElementById('searchbar').value
+            input = input.toLowerCase();
+            let x = document.getElementsByClassName('champions');
+            let y = document.getElementsByClassName('card');
+
+            for (i = 0; i < x.length; i++) {
+                if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                    y[i].style.display = "none";
+                } else {
+                    y[i].style.display = "list-item";
+                    y[i].style.listStyleType = "none";
+                }
+            }
+        }
+
+        const showChamp = () => {
+
+        };
+    </script>
+{% endblock %}
+
+{% block body %}
+    <body style="background-color: unset">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <a class="navbar-brand">YoneOTP</a>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"></a>
+                        </li>
+
+                    </ul>
+                </div>
+                <form class="d-flex">
+                    <input id="searchbar" onkeyup="search_champ()" type="text"
+                           name="search" class="form-control me-2" placeholder="Nom d'un champion"
+                           aria-label="Search">
+                </form>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container-fluid place-to-footer ">
+            <!--<div>
+                <h4>1er back :</h4>
+                <p>1300G = Carquois pour shieldbow</p>
+                <p>1100G = Zèle ou Chaussure Berseker</p>
+                <p>900G = Sceptre vampirique</p>
+                <p><900G = Deux lames pour vitesse d'attaque"</p>
+                "Note : Build de Zèle si je veux snowball ET pas assez pour carquois.<br>
+                ShieldBow > IE >
+                Rappel Mortel : Si bcp de heal comme Sylas, Soraka, ww
+                Soif de sang: si snowball sinon inutile
+                Visage Spirituel : Si support enchanteur
+                Force de la nature: Si equipe ennemie full ap (Item vraiment defensif)
+                Bout du rouleau : Plus trop ouf, juste contre champion qui on bcp d'armure comme Rammus, malphite...
+                Botte de mercure : Que si on prend zèle en premier, contre une compo avec Magic Resist ou CC
+                Botte Steelcaps : Que si on prend zèle en premier, contre equipe full AD ou bcp de champ avec des auto
+                attack
+                Dance de la mort : TRES OP sur Yone, contre champ assasin AD (Talon, Zed, Qiyana)
+                Ange Gardien : Si pas assez pour Dance de la mort, c'est un tres bon 3eme item
+                Randuin : Contre au moins 2 champs critiques ou tres feed (ADC)
+                QSS : Contre equipe avec de gros CC (Malzahar, fiddlesticks, morgana)
+                Silvermere : Si QSS, prendre ça par la suite
+                <hr class="solid">
+                Travailler la vision pour les objectifs comme le drake, ou le héraut"</p>
+            </div>-->
+
+            <div id="fond" class="row p-0 text-center d-flex justify-content-center align-items-center">
+
+                {% for champ in allChamps %}
+                    <div class="card m-4 p-0" style="width: 18rem;">
+                        <img class="card-img-top" alt="..." src="{{ champ.picture }}">
+                        <div class="card-body">
+                            <h5 class="card-title champions">{{ champ.name }}</h5>
+                            <p class="card-text"></p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                {% if champ.difficulty < 5 %}
+                                    <p style="color: #146c43"><b>Difficulté : {{ champ.difficulty }}</b></p>
+                                {% elseif champ.difficulty >= 5 and champ.difficulty < 8 %}
+                                    <p style="color: #ffc107"><b>Difficulté : {{ champ.difficulty }}</b></p>
+                                {% else %}
+                                    <p style="color: red"><b>Difficulté : {{ champ.difficulty }}</b></p>
+
+                                {% endif %}
+                            </li>
+                            <li class="list-group-item">Item de début :
+                                {% if 'Lame' in champ.startingItem %}
+                                    <img style="width: 40px"
+                                         src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/1054_tank_t1_doransshield.png"
+                                         title="Lame de doran"
+                                    >
+                                {% elseif 'Bouclier' %}
+                                    <img style="width: 40px"
+                                         src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/1055_marksman_t1_doransblade.png"
+                                         title="Bouclier de doran"
+                                    >
+                                {% endif %}
+                                <img style="width: 40px"
+                                     src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/2003_class_t1_healthpotion.png"
+                                     title="Potion PV"
+                                />
+                            </li>
+                        </ul>
+                        <div class="card-footer">
+                            <a href="{{ path('showChamp', {'champion': champ.id}) }}"
+                               class="btn btn-primary btnShow stretched-link">Voir</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+    </body>
+{% endblock %}

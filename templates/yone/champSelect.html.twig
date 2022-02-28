@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Champion{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+
+    </script>
+    <script src="https://kit.fontawesome.com/473fbd60b8.js" crossorigin="anonymous"></script>
+
+{% endblock %}
+
+{% block body %}
+    <header>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <div>
+                    <a href="{{ path('home') }}" type="button" class="btn"><i class="fa-solid fa-circle-left"></i></a>
+                    <a class="navbar-brand">{{ champion.name }}</a>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <main style="background-color: #e2c7b8;">
+        <div class="container-fluid place-to-footer">
+            <div id="fond" class="row">
+                <div class="col-md-12 text-center d-flex justify-content-center align-items-center flex-column">
+                    <img style="width: 70%" src="{{ champion.picture }}">
+                    <h1>{{ champion.name }}</h1>
+                    <p>{{ champion.tips }}</p>
+                    <p>
+                        {% if 'P' in champion.cooldowns %}
+                            <img src=
+                                 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/{{ champion.name|lower }}/hud/icons2d/{{ champion.name|lower }}_passive.png'/>
+                            <img src=
+                                 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/{{ champion.name|lower }}/hud/icons2d/{{ champion.name|lower }}_q.png'/>
+                            <img src=
+                                 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/{{ champion.name|lower }}/hud/icons2d/{{ champion.name|lower }}_w.png'/>
+                            <img src=
+                                 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/{{ champion.name|lower }}/hud/icons2d/{{ champion.name|lower }}_e.png'/>
+                            <img src=
+                                 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/{{ champion.name|lower }}/hud/icons2d/{{ champion.name|lower }}_r.png'/>
+
+                        {% else %}
+                            <img src=
+                                 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/{{ champion.name|lower }}/hud/icons2d/{{ champion.name|lower }}_q.png'/>
+                            <img src=
+                                 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/{{ champion.name|lower }}/hud/icons2d/{{ champion.name|lower }}_w.png'/>
+                            <img src=
+                                 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/{{ champion.name|lower }}/hud/icons2d/{{ champion.name|lower }}_e.png'/>
+                            <img src=
+                                 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/{{ champion.name|lower }}/hud/icons2d/{{ champion.name|lower }}_r.png'/>
+
+                        {% endif %}
+                        {{ champion.cooldowns }}</p>
+                    <p>{{ champion.startingItem }}</p>
+
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
