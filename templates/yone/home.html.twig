@@ -25,10 +25,11 @@
 
         };
     </script>
+
 {% endblock %}
 
 {% block body %}
-    <body style="background-color: unset">
+    <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
@@ -85,7 +86,7 @@
             <div id="fond" class="row p-0 text-center d-flex justify-content-center align-items-center">
 
                 {% for champ in allChamps %}
-                    <div class="card m-4 p-0" style="width: 18rem;">
+                    <div class="card m-4 p-0" >
                         <img class="card-img-top" alt="..." src="{{ champ.picture }}">
                         <div class="card-body">
                             <h5 class="card-title champions">{{ champ.name }}</h5>
@@ -94,27 +95,26 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
                                 {% if champ.difficulty < 5 %}
-                                    <p style="color: #146c43"><b>Difficulté : {{ champ.difficulty }}</b></p>
+                                    <p class="easy"><b>Difficulté : {{ champ.difficulty }}</b></p>
                                 {% elseif champ.difficulty >= 5 and champ.difficulty < 8 %}
-                                    <p style="color: #ffc107"><b>Difficulté : {{ champ.difficulty }}</b></p>
+                                    <p class="medium"><b>Difficulté : {{ champ.difficulty }}</b></p>
                                 {% else %}
-                                    <p style="color: red"><b>Difficulté : {{ champ.difficulty }}</b></p>
-
+                                    <p class="hard"><b>Difficulté : {{ champ.difficulty }}</b></p>
                                 {% endif %}
                             </li>
                             <li class="list-group-item">Item de début :
                                 {% if 'Lame' in champ.startingItem %}
-                                    <img style="width: 40px"
+                                    <img class="icon"
                                          src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/1054_tank_t1_doransshield.png"
                                          title="Lame de doran"
                                     >
                                 {% elseif 'Bouclier' %}
-                                    <img style="width: 40px"
+                                    <img class="icon"
                                          src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/1055_marksman_t1_doransblade.png"
                                          title="Bouclier de doran"
                                     >
                                 {% endif %}
-                                <img style="width: 40px"
+                                <img class="icon"
                                      src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/2003_class_t1_healthpotion.png"
                                      title="Potion PV"
                                 />

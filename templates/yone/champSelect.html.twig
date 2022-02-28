@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Champion{% endblock %}
+{% block title %}{{ champion.name }}{% endblock %}
 
 {% block javascripts %}
     <script type="text/javascript">
@@ -11,6 +11,11 @@
 {% endblock %}
 
 {% block body %}
+    <body class="backChampSelect"
+          style=" background: url({{ champion.picture }}) no-repeat center center fixed;-webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;
+                  background-size: cover;">
     <header>
         <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
@@ -22,42 +27,38 @@
             </div>
         </nav>
     </header>
-    <main style="background-color: #e2c7b8;">
-        <div class="container-fluid place-to-footer">
+    <main>
+        <div class="container-fluid place-to-footer"
+             style="background-color: white; overflow: hidden; display: flex; justify-content: center;box-shadow: 10px 5px 15px black; border-radius: 15px; align-items: center; width: 50vw; margin: 20vh auto ">
             <div id="fond" class="row">
-                <div class="col-md-12 text-center d-flex justify-content-center align-items-center flex-column">
-                    <img style="width: 70%" src="{{ champion.picture }}">
-                    <h1>{{ champion.name }}</h1>
+                <div class="col-md-12  flex-column p-3">
+                    <h1 class="text-center"><b>{{ champion.name }}</b></h1>
+                    <h5> TIPS PRO :</h5>
                     <p>{{ champion.tips }}</p>
+                    <h5> TIPS :</h5>
                     <p>
-                        {% if 'P' in champion.cooldowns %}
-                            <img src=
-                                 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/{{ champion.name|lower }}/hud/icons2d/{{ champion.name|lower }}_passive.png'/>
-                            <img src=
-                                 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/{{ champion.name|lower }}/hud/icons2d/{{ champion.name|lower }}_q.png'/>
-                            <img src=
-                                 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/{{ champion.name|lower }}/hud/icons2d/{{ champion.name|lower }}_w.png'/>
-                            <img src=
-                                 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/{{ champion.name|lower }}/hud/icons2d/{{ champion.name|lower }}_e.png'/>
-                            <img src=
-                                 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/{{ champion.name|lower }}/hud/icons2d/{{ champion.name|lower }}_r.png'/>
-
-                        {% else %}
-                            <img src=
-                                 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/{{ champion.name|lower }}/hud/icons2d/{{ champion.name|lower }}_q.png'/>
-                            <img src=
-                                 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/{{ champion.name|lower }}/hud/icons2d/{{ champion.name|lower }}_w.png'/>
-                            <img src=
-                                 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/{{ champion.name|lower }}/hud/icons2d/{{ champion.name|lower }}_e.png'/>
-                            <img src=
-                                 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/{{ champion.name|lower }}/hud/icons2d/{{ champion.name|lower }}_r.png'/>
-
-                        {% endif %}
-                        {{ champion.cooldowns }}</p>
-                    <p>{{ champion.startingItem }}</p>
-
+                        {% for tips in info.enemytips %}
+                            - {{ tips }}<br>
+                        {% endfor %}
+                    </p>
+                    <h5> SPELLS :</h5>
+                    <div class="row">
+                        {% for i in 0..3 %}
+                            <div class="mb-2">
+                                <img style='float:left;' title="{{ info.spells[i].description }}" src=
+                                'https://ddragon.leagueoflegends.com/cdn/12.4.1/img/spell/{{ info.spells[i].id }}.png'/>
+                                <p style="text-align: left; margin-top: 20px; margin-left: 70px">
+                                    {% for cooldown in info.spells[i].cooldown %}
+                                            {{ cooldown }} sec /
+                                    {% endfor %}
+                                </p>
+                                </p>
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
     </main>
+    </body>
 {% endblock %}

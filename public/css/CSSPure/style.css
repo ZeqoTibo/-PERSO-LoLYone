@@ -1,0 +1,58 @@
+/* HOME PAGE */
+/*
+    Fond du site
+ */
+body {
+    background: url(https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yone_19.jpg) no-repeat center center fixed ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/*
+    NavBar
+ */
+nav {
+    opacity: 80%;
+}
+
+/*
+    Carte sur la page d'accueil de chaque champion
+ */
+.card {
+    width: 18rem;
+}
+
+/*
+    Difficulté facile
+ */
+.list-group-item > .easy {
+    color: #146c43
+}
+
+/*
+    Difficulté moyenne
+ */
+.list-group-item > .medium {
+    color: #ffc107
+}
+
+/*
+    Difficulté hard
+ */
+.list-group-item > .hard {
+    color: red
+}
+
+/*
+    image Lame
+ */
+.list-group-item > .icon {
+    width: 40px
+}
+
+/* CHAMP PAGE */
+.backChampSelect {
+
+}
