@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}YONE OTP{% endblock %}
+{% block title %}Champions{% endblock %}
 
 {% block javascripts %}
 
@@ -34,7 +34,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
 
-                <a class="navbar-brand">YoneOTP</a>
+                <a class="navbar-brand">Champions</a>
 
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -85,44 +85,17 @@
             </div>-->
 
             <div id="fond" class="row p-0 text-center d-flex justify-content-center align-items-center">
-
-                {% for champ in allChamps %}
+                {% for champ in testAll %}
                     <div class="card m-4 p-0" >
-                        <img class="card-img-top" alt="..." src="{{ champ.picture }}">
+                        <img class="card-img-top" alt="..." src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg">
+
                         <div class="card-body">
-                            <h5 class="card-title champions">{{ champ.name }}</h5>
-                            <p class="card-text"></p>
+                            <h5 class="card-title champions">{{ champ.image['full'] }}</h5>
+                            <p class="card-text">test</p>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                                {% if champ.difficulty < 5 %}
-                                    <p class="easy"><b>Difficulté : {{ champ.difficulty }}</b></p>
-                                {% elseif champ.difficulty >= 5 and champ.difficulty < 8 %}
-                                    <p class="medium"><b>Difficulté : {{ champ.difficulty }}</b></p>
-                                {% else %}
-                                    <p class="hard"><b>Difficulté : {{ champ.difficulty }}</b></p>
-                                {% endif %}
-                            </li>
-                            <li class="list-group-item">Item de début :
-                                {% if 'Lame' in champ.startingItem %}
-                                    <img class="icon"
-                                         src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/1054_tank_t1_doransshield.png"
-                                         title="Lame de doran"
-                                    >
-                                {% elseif 'Bouclier' %}
-                                    <img class="icon"
-                                         src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/1055_marksman_t1_doransblade.png"
-                                         title="Bouclier de doran"
-                                    >
-                                {% endif %}
-                                <img class="icon"
-                                     src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/2003_class_t1_healthpotion.png"
-                                     title="Potion PV"
-                                />
-                            </li>
-                        </ul>
+
                         <div class="card-footer">
-                            <a href="{{ path('showChamp', {'champion': champ.id}) }}"
+                            <a href=""
                                class="btn btn-primary btnShow stretched-link">Voir</a>
                         </div>
                     </div>

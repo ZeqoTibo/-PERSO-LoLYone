@@ -22,6 +22,7 @@ class HomeController extends AbstractController
     {
         $this->managerRegistry = $managerRegistry;
     }
+
     /**
      * @Route("/", name="home")
      */
@@ -35,27 +36,32 @@ class HomeController extends AbstractController
     }
 
     /**
+     * @Route("/allChamp", name="allChamp", methods={"GET"})
+     */
+    public function allChamp(): Response
+    {
+        $json = file_get_contents('https://ddragon.leagueoflegends.com/cdn/12.4.1/data/fr_FR/championFull.json');
+        $decode = json_decode($json, true);
+        $allChamp = $decode['data'];
+        return $this->render('all/allChamp.html.twig', [
+            'testAll' => $allChamp
+        ]);
+    }
+
+    /**
      * @Route("/{champion}", name="showChamp", methods={"GET"})
      */
-    public function showChamp (string $champion, ManagerRegistry $managerRegistry): Response
+    public function showChamp(string $champion, ManagerRegistry $managerRegistry): Response
     {
-        $result = $managerRegistry->getRepository(Champion::class)->findOneBy(['id'=>$champion]);
+        $result = $managerRegistry->getRepository(Champion::class)->findOneBy(['id' => $champion]);
 
         $json = file_get_contents('https://ddragon.leagueoflegends.com/cdn/12.4.1/data/fr_FR/championFull.json');
         $decode = json_decode($json);
         $name = preg_replace('/[^A-Za-z0-9\-]/', '', $result->getName());
-        $info =$decode->{'data'}->{$name};
-        $first = $decode->{'data'}->{$name}->{'spells'}[0]->{'image'}->{'full'};
-        $second = $decode->{'data'}->{$name}->{'spells'}[1]->{'image'}->{'full'};
-        $third = $decode->{'data'}->{$name}->{'spells'}[2]->{'image'}->{'full'};
-        $quad = $decode->{'data'}->{$name}->{'spells'}[3]->{'image'}->{'full'};
+        $info = $decode->{'data'}->{$name};
         return $this->render('yone/champSelect.html.twig', [
             'champion' => $result,
             'info' => $info,
-            'a' => $first,
-            'z' => $second,
-            'e' => $third,
-            'r' => $quad
         ]);
     }
 
