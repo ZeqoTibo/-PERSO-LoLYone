@@ -38,6 +38,7 @@ class HomeController extends AbstractController
     /**
      * @Route("/allChamp", name="allChamp", methods={"GET"})
      */
+    /*
     public function allChamp(): Response
     {
         $json = file_get_contents('https://ddragon.leagueoflegends.com/cdn/12.4.1/data/fr_FR/championFull.json');
@@ -46,7 +47,7 @@ class HomeController extends AbstractController
         return $this->render('all/allChamp.html.twig', [
             'testAll' => $allChamp
         ]);
-    }
+    }*/
 
     /**
      * @Route("/{champion}", name="showChamp", methods={"GET"})
@@ -58,7 +59,13 @@ class HomeController extends AbstractController
         $json = file_get_contents('https://ddragon.leagueoflegends.com/cdn/12.4.1/data/fr_FR/championFull.json');
         $decode = json_decode($json);
         $name = preg_replace('/[^A-Za-z0-9\-]/', '', $result->getName());
-        $info = $decode->{'data'}->{$name};
+        if($name == "Wukong"){
+            $info = $decode->{'data'}->{'MonkeyKing'};
+        } else if ($name == "VelKoz"){
+            $info = $decode->{'data'}->{ucfirst(strtolower($name))};
+        } else {
+            $info = $decode->{'data'}->{$name};
+        }
         return $this->render('yone/champSelect.html.twig', [
             'champion' => $result,
             'info' => $info,
