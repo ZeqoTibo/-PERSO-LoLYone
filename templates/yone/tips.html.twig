@@ -1,0 +1,131 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tips{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+
+    </script>
+    <script src="https://kit.fontawesome.com/473fbd60b8.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block body %}
+    <body class="backChampSelect">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <a class="navbar-brand " href="/">YoneOTP</a>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/tips">Tips</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/contact">Contact</a>
+
+                        </li>
+                    </ul>
+                    <a class="nav-link disabled" >By Zeqo</a>
+                </div>
+                <form class="d-flex">
+                    <input id="searchbar" onkeyup="search_champ()" type="text"
+                           name="search" class="form-control me-2" placeholder="Nom d'un champion"
+                           aria-label="Search">
+                </form>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container-fluid place-to-footer"
+             style="background-color: white; overflow: hidden; display: flex; justify-content: center;box-shadow: 10px 5px 15px black; border-radius: 15px; align-items: center; width: 50vw; margin: 2vh auto ">
+            <div id="fond" class="row">
+                <div class="col-md-12  flex-column p-3">
+
+                    <h4>1er back :</h4>
+                    <p>1300G = Carquois pour shieldbow</p>
+                    <p>1100G = Zèle ou Chaussure Berseker</p>
+                    <p>900G = Sceptre vampirique</p>
+                    <p><900G = Deux lames pour vitesse d'attaque"</p>
+                    <h5>Note :<br></h5>
+                    <ul>
+                        <li class="mb-2">
+                            <img
+                                    title="ShieldBow"
+                                    style="width: 60px"
+                                    src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/6673_marksman_t4_crimsonshieldbow.png">
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            <img
+                                    title="Infinity Edge"
+                                    style="width: 60px"
+                                    src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3031_marksman_t3_infinityedge.png">
+                        </li>
+                        <li class="mb-2">Build Zeal
+                            <img style="width: 30px"
+                                 src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3086_fighter_t2_zeal.png">
+                            si je veux snowball ET pas assez pour le carquois
+                            <img style="width: 30px"
+                                 src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/6670_marksman_t2_noonquiver.png">
+                            .
+                        </li>
+                        <li class="mb-2"><b>Rappel Mortel
+                                <img style="width: 30px"
+                                     src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3033_marksman_t3_mortalreminder.png">
+                                :
+                            </b> Si beaucoup de heal comme Sylas, Soraka, ww
+                        </li>
+                        <li class="mb-2"><b>Visage Spirituel
+                                <img style="width: 30px"
+                                     src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3065_tank_t3_spiritvisage.png">
+                                :
+                            </b> Si support enchanteur
+                        </li>
+                        <li class="mb-2"><b>Force de la nature
+                                <img style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/4401_tank_t3_forceofnature.png">
+                                :
+                            </b> Si l'équipe ennemie est full ap (Item vraiment defensif)
+                        </li>
+                        <li class="mb-2"><b>Dance de la mort <img style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/6333_fighter_t3_deathsdance.png">
+                                :
+                            </b> TRES OP sur Yone, contre champ assasin AD (Talon,
+                            Zed, Qiyana)
+                        </li>
+                        <li class="mb-2"><b>Ange Gardien <img style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3026_fighter_t3_guardianangel.png">
+                                :</b> Si pas assez pour Dance de la mort, c'est un tres bon
+                            3eme item
+                        </li>
+                        <li class="mb-2"><b>Randuin <img style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3143_tank_t3_randuinsomen.png">
+                                :</b> Contre au moins 2 champs critiques ou tres feed (ADC)</li>
+                        <li class="mb-2"><b>Bout du rouleau <img style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3091_fighter_t3_witsend.png">
+                                :</b> Plus trop ouf, juste contre champion qui on bcp
+                            d'armure comme Rammus, malphite...
+                        </li>
+                        <li class="mb-2"><b>QSS <img style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3140_marksman_t2_quicksilversash.png">
+                                :</b> Contre equipe avec de gros CC (Malzahar, fiddlesticks, morgana)
+                        </li>
+                        <li class="mb-2"><b>Silvermere <img style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/6035_fighter_t3_silvermeredawn.png">
+                                :</b> Si QSS, prendre ça par la suite</li>
+                        <li class="mb-2">Bottes :</li>
+                        <ul>
+                            <li class="mb-2"><b>Botte de mercure <img  style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3111_class_t2_mercurystreads.png">
+                                    :</b> Que si on prend zèle en premier, contre une compo
+                                avec Magic Resist ou CC
+                            </li>
+                            <li class="mb-2"><b>Botte Steelcaps <img style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3047_class_t2_ninjatabi.png">
+                                    :</b> Que si on prend zèle en premier, contre equipe
+                                full AD ou bcp de champ avec des auto attack
+                            </li>
+                        </ul>
+                    </ul>
+                    <hr class="solid">
+                    <p style="text-align: center">⚠️Travailler la vision pour les objectifs comme le drake, ou le
+                        héraut⚠️
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+    </body>
+{% endblock %}
