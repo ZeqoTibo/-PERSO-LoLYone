@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tips{% endblock %}
+{% block title %}Tips - Bon à savoir{% endblock %}
 
 {% block javascripts %}
     <script type="text/javascript">
@@ -12,29 +12,12 @@
 {% block body %}
     <body class="backChampSelect">
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
-
-                <a class="navbar-brand " href="/">YoneOTP</a>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/tips">Tips</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="/contact">Contact</a>
-
-                        </li>
-                    </ul>
-                    <a class="nav-link disabled" >By Zeqo</a>
+                <div>
+                    <a href="{{ path('home') }}" type="button" class="btn"><i class="fa-solid fa-circle-left"></i></a>
                 </div>
-                <form class="d-flex">
-                    <input id="searchbar" onkeyup="search_champ()" type="text"
-                           name="search" class="form-control me-2" placeholder="Nom d'un champion"
-                           aria-label="Search">
-                </form>
+
             </div>
         </nav>
     </header>
@@ -45,13 +28,40 @@
                 <div class="col-md-12  flex-column p-3">
 
                     <h4>1er back :</h4>
-                    <p>1300G = Carquois pour shieldbow</p>
-                    <p>1100G = Zèle ou Chaussure Berseker</p>
-                    <p>900G = Sceptre vampirique</p>
-                    <p><900G = Deux lames pour vitesse d'attaque"</p>
-                    <h5>Note :<br></h5>
+                    <p><i>1100G</i> = La situation idéal est d'acheter les Berseker dès le premier back.</p>
+                    <p>Il est aussi possible de prendre deux lames pour de la vitesse d'attaque si vous n'avez pas assez de gold.</p>
+                    <h4>Sors d'invocateur :<br></h4>
                     <ul>
                         <li class="mb-2">
+                            <img alt="flash" style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/data/spells/icons2d/summoner_flash.png">
+                            Toujours prendre le flash.
+                        </li>
+                        <li class="mb-2">
+                            <img alt="TP" style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/data/spells/icons2d/summoner_teleport.png">
+                            Prendre que lorsque vous jouez au top.
+                        </li>
+                        <li class="mb-2">
+                            <img alt="summoner_exhaust" style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/data/spells/icons2d/summoner_exhaust.png">
+                            Prendre lorsque vous jouez contre un Zed, un Talon ou bien une Qiyana.
+                        </li>
+                        <li class="mb-2">
+                            <img alt="summoner_boost" style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/data/spells/icons2d/summoner_boost.png">
+                            Prendre contre Lissandra ou Zoé. A prendre lorsqu'il y a de très gros CC.
+                        </li>
+                        <li class="mb-2">
+                            <img alt="summonerignite" style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/data/spells/icons2d/summonerignite.png">
+                            A prendre dans la plus part des cas. Vous infligerez des dégâts supplémentaires pour sécuriser les éliminations.
+                        </li>
+                    </ul>
+                    <h4>BUILD :<br></h4>
+                    <ul>
+                        <li class="mb-2" style="list-style-type: none">
+                            <p>Le build le plus recurrent :</p>
+                            <img
+                                    title="Berseker's Greaves"
+                                    style="width: 60px"
+                                    src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3006_class_t2_berserkersgreaves.png">
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
                             <img
                                     title="ShieldBow"
                                     style="width: 60px"
@@ -62,46 +72,86 @@
                                     style="width: 60px"
                                     src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3031_marksman_t3_infinityedge.png">
                         </li>
-                        <li class="mb-2">Build Zeal
+                        <hr>
+                        <li class="mb-2" style="list-style-type: none">
+                            <p>Il y aussi un autre build s'il n'y a pas de frontline et que l'équipe adverse n'a pas trop de CC/burst :</p>
+                            <img
+                                    title="BOTRK"
+                                    style="width: 60px"
+                                    src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3153_fighter_t3_bladeoftheruinedking.png">
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            <img
+                                    title="Gantelet"
+                                    style="width: 60px"
+                                    src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/6662_tank_t4_frostfiregauntlet.png">
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            <img
+                                    title="Zèle"
+                                    style="width: 60px"
+                                    src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3086_fighter_t2_zeal.png">
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            <img
+                                    title="Infinity Edge"
+                                    style="width: 60px"
+                                    src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3031_marksman_t3_infinityedge.png">
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            <img
+                                    title="Rappel Mortel"
+                                    style="width: 60px"
+                                    src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3033_marksman_t3_mortalreminder.png">
+                            <b>/</b>
+                            <img
+                                    title="Danseur Fantôme"
+                                    style="width: 60px"
+                                    src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3046_marksman_t3_phantomdancer.png">
+                        </li>
+                        <p>Ensuite, il faut adapter à la team adverse :</p>
+                        <li class="mb-2"><b>Dance de la mort <img style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/6333_fighter_t3_deathsdance.png">
+                                :
+                            </b> TRES OP sur Yone, contre champ assasin AD (Talon,
+                            Zed, Qiyana).
+                        </li>
+                        <li class="mb-2"><b>Bout du rouleau <img style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3091_fighter_t3_witsend.png">
+                                :</b> Si besoin de RM
+                        </li>
+                        <li class="mb-2"><b>Lame du Roi Déchu <img style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3153_fighter_t3_bladeoftheruinedking.png">
+                                :</b> Quand il n'y a pas de burst/cc rota/stack armor || Actuellement, la BOTRK est broken contre des champions qui stack les items Hp.
+                        </li>
+                        <li class="mb-2"><b>Zèle
                             <img style="width: 30px"
                                  src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3086_fighter_t2_zeal.png">
-                            si je veux snowball ET pas assez pour le carquois
-                            <img style="width: 30px"
-                                 src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/6670_marksman_t2_noonquiver.png">
-                            .
+                            :</b> Si y'a pas bcp de burst et de cc en face, ça permet de bien utiliser la moove speed pour kite etc, tu peux le faire après les bottes.
                         </li>
                         <li class="mb-2"><b>Rappel Mortel
                                 <img style="width: 30px"
                                      src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3033_marksman_t3_mortalreminder.png">
                                 :
-                            </b> Si beaucoup de heal comme Sylas, Soraka, ww
+                            </b> Si beaucoup de heal comme Sylas, Soraka, ww (ta team en général est plus apte à faire de l'anti-heal que toi)
+                        </li>
+                        <li class="mb-2"><b>Dominik
+                                <img style="width: 30px"
+                                     src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3036_marksman_t3_dominkregards.png">
+                                :
+                            </b> Si beaucoup de tank.
                         </li>
                         <li class="mb-2"><b>Visage Spirituel
                                 <img style="width: 30px"
                                      src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3065_tank_t3_spiritvisage.png">
                                 :
-                            </b> Si support enchanteur
+                            </b> Si support enchanteur (Lulu, Soraka, Yuumi...)
                         </li>
                         <li class="mb-2"><b>Force de la nature
                                 <img style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/4401_tank_t3_forceofnature.png">
                                 :
                             </b> Si l'équipe ennemie est full ap (Item vraiment defensif)
                         </li>
-                        <li class="mb-2"><b>Dance de la mort <img style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/6333_fighter_t3_deathsdance.png">
-                                :
-                            </b> TRES OP sur Yone, contre champ assasin AD (Talon,
-                            Zed, Qiyana)
-                        </li>
+
                         <li class="mb-2"><b>Ange Gardien <img style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3026_fighter_t3_guardianangel.png">
                                 :</b> Si pas assez pour Dance de la mort, c'est un tres bon
                             3eme item
                         </li>
                         <li class="mb-2"><b>Randuin <img style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3143_tank_t3_randuinsomen.png">
-                                :</b> Contre au moins 2 champs critiques ou tres feed (ADC)</li>
-                        <li class="mb-2"><b>Bout du rouleau <img style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3091_fighter_t3_witsend.png">
-                                :</b> Plus trop ouf, juste contre champion qui on bcp
-                            d'armure comme Rammus, malphite...
-                        </li>
+                                :</b> Contre au moins 2 champs critiques ou tres feed (Draven, Kindred...)</li>
                         <li class="mb-2"><b>QSS <img style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3140_marksman_t2_quicksilversash.png">
                                 :</b> Contre equipe avec de gros CC (Malzahar, fiddlesticks, morgana)
                         </li>
@@ -110,8 +160,7 @@
                         <li class="mb-2">Bottes :</li>
                         <ul>
                             <li class="mb-2"><b>Botte de mercure <img  style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3111_class_t2_mercurystreads.png">
-                                    :</b> Que si on prend zèle en premier, contre une compo
-                                avec Magic Resist ou CC
+                                    :</b> Bonne contre LB ou Lissandra. Si c'est une team full AP ou avec beaucoup de CC. A acheter après shieldbow
                             </li>
                             <li class="mb-2"><b>Botte Steelcaps <img style="width: 30px" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3047_class_t2_ninjatabi.png">
                                     :</b> Que si on prend zèle en premier, contre equipe
@@ -119,6 +168,8 @@
                             </li>
                         </ul>
                     </ul>
+
+
                     <hr class="solid">
                     <p style="text-align: center">⚠️Travailler la vision pour les objectifs comme le drake, ou le
                         héraut⚠️
