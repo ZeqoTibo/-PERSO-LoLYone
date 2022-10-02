@@ -87,10 +87,9 @@
             <div id="fond" class="row p-0 text-center d-flex justify-content-center align-items-center">
                 {% for champ in testAll %}
                     <div class="card m-4 p-0" >
-                        <img class="card-img-top" alt="..." src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg">
-
+                        <img class="card-img-top" alt="..." src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{ champ.name | lower | capitalize |replace({' ': '', '.': ""}) }}_0.jpg">
                         <div class="card-body">
-                            <h5 class="card-title champions">{{ champ.image['full'] }}</h5>
+                            <h5 class="card-title champions">{{ champ.image['full'] | trim('.png') }}</h5>
                             <p class="card-text">test</p>
                         </div>
 
